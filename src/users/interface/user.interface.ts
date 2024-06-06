@@ -5,7 +5,6 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 export interface UserInterface {
     create(data: CreateUserDto): Promise<void>;
     update(id: string, data: UpdateUserDto): Promise<User | null>;
-    findAll(): Promise<User[]>;
     findOne(id: string): Promise<User | null>;
     delete(id: string): Promise<User>;
 }

@@ -36,9 +36,14 @@ export class UpdateUserService {
             throw new ConflictException('Email already exists.');
         }
 
-        await this.userRepository.update(id, {
+        const user = await this.userRepository.update(id, {
             name,
             email,
         });
+
+        return {
+            ...user,
+            password: undefined,
+        };
     }
 }

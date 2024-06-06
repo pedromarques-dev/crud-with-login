@@ -21,7 +21,13 @@ export class UserRepository implements UserInterface {
     }
 
     async findAll() {
-        const users = await this.prisma.user.findMany();
+        const users = await this.prisma.user.findMany({
+            select: {
+                id: true,
+                name: true,
+                email: true,
+            },
+        });
 
         return users;
     }

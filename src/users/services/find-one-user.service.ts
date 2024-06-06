@@ -13,7 +13,8 @@ export class FindOneUserService {
         }
 
         return {
-            user,
+            ...user,
+            password: undefined,
         };
     }
 }

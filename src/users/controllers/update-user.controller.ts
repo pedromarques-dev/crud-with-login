@@ -1,8 +1,7 @@
-import { Controller, Body, Patch, Param, UsePipes } from '@nestjs/common';
-import { UpdateUserDto, updateUserSchema } from '../dto/update-user.dto';
+import { Controller, Body, Patch, Param } from '@nestjs/common';
+import { UpdateUserDto } from '../dto/update-user.dto';
 import { UpdateUserService } from '../services/update-user.service';
 import { z } from 'zod';
-import { ZodValidationPipe } from 'src/pipes/zod-validation.pipe';
 
 const updateUserParamsSchema = z.object({
     id: z.string().uuid(),
@@ -15,7 +14,6 @@ export class UpdateUserController {
     constructor(private readonly service: UpdateUserService) {}
 
     @Patch('/:id')
-    @UsePipes(new ZodValidationPipe(updateUserSchema))
     handle(
         @Body() updateUserDto: UpdateUserDto,
         @Param() { id }: UpdateUserParamsSchema,

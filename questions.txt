@@ -1,9 +1,0 @@
-PATCH /USERS
-LOGICA
-EMAIL NULLABLE
-PIPES ZOD
-
-/auth 
-algoritmo token
-
-
